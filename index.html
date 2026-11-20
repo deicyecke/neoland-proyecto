@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sossego</title>
+    <link rel="stylesheet" href="css/sossego-estilos.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <main>
+    <nav class="navbar">
+      <!-- Logo izquierda -->
+      <div class="logo">
+        <a href="index.html">Sossego</a>
+      </div>
+
+      <!-- Menú centro -->
+      <ul class="nav-links">
+        <li><a href="paginas/tienda.html">Tienda</a></li>
+        <li><a href="locales.html">Locales</a></li>
+
+        <li class="dropdown">
+          <a href="#" class="dropbtn">Sobre Nosotros</a>
+          <ul class="dropdown-content">
+            <li><a href="historia.html">Historia</a></li>
+            <li><a href="origen.html">Origen del café</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Iconos derecha -->
+      <div class="nav-icons">
+        <a href="paginas/usuario.html"
+          ><img src="imagenes/usuario.png" alt="Usuario"
+        /></a>
+        <a href="paginas/carrito.html"
+          ><img src="imagenes/carrito.png" alt="Carrito"
+        /></a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div>
+    <img src="imagenes/portada2.jpg" alt="portada">
+      
+      </div>
+    </section>
+
+    <section class="tienda-seccion">
+      <div class="tienda-header">
+        <h2 class="tienda-titulo-seccion">NUESTROS CAFÉS</h2>
+        <a href="paginas/tienda.html" class="tienda-link">Ver todos <span>→</span></a>
+      </div>
+
+      <div class="productos-grid">
+        <div class="producto-item">
+          <div class="producto-imagen-box">
+            <span class="badge-tag">MÁS VENDIDO</span>
+            <img src="imagenes/cafegranobossanova.jpg" alt="Café en grano Bossa Nova" />
+          </div>
+          <div class="producto-info-minimal">
+            <h3 class="producto-nombre">BOSSA NOVA</h3>
+            <div class="producto-estrellas">★★★★★ 4766 reviews</div>
+            <p class="producto-notas">
+              Chocolate con leche, caramelo y avellana.
+            </p>
+            <button class="btn-accion-negro">AÑADIR AL CARRITO</button>
+          </div>
+        </div>
+
+        <div class="producto-item">
+          <div class="producto-imagen-box">
+            <img src="imagenes/cafegranopaixao.jpg" alt="Café en grano Paixao" />
+          </div>
+          <div class="producto-info-minimal">
+            <h3 class="producto-nombre">PAIXÃO</h3>
+            <div class="producto-estrellas">★★★★★ 469 reviews</div>
+            <p class="producto-notas">
+              Cacao puro, melaza y frutos secos tostados.
+            </p>
+            <button class="btn-accion-negro">AÑADIR AL CARRITO</button>
+          </div>
+        </div>
+
+        <div class="producto-item">
+          <div class="producto-imagen-box">
+            <img src="imagenes/cafegranonuvem.jpg" alt="Café en grano Nuvem" />
+          </div>
+          <div class="producto-info-minimal">
+            <h3 class="producto-nombre">NUVEM</h3>
+            <div class="producto-estrellas">★★★★★ 210 reviews</div>
+            <p class="producto-notas">
+              Notas florales muy sutiles y a almendra.
+            </p>
+            <button class="btn-accion-negro">AÑADIR AL CARRITO</button>
+          </div>
+        </div>
+      </div>
+    </section>
+</main>
+  <footer class="main-footer">
+    <div class="footer-container">
+      <div class="footer-col brand-col">
+        <h2 class="footer-logo"><a href="index.html">Sossego</a></h2>
+        <p class="brand-description">
+          Café de especialidad tostado con coherencia, pensado para los amantes
+          del buen café del día a día.
+        </p>
+        <p class="footer-horario">
+          <strong>Horarios generales:</strong> Lun a Dom: 8:00 - 20:00
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-title">Explora</h4>
+        <ul class="footer-links">
+          <li><a href="paginas/tienda.html">Tienda</a></li>
+          <li><a href="locales.html">Locales</a></li>
+          <li><a href="historia.html">Nuestra Historia</a></li>
+          <li><a href="origen.html">Origen del Café</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-title">Tu Cuenta</h4>
+        <ul class="footer-links">
+          <li><a href="paginas/usuario.html">Mi Cuenta</a></li>
+          <li><a href="paginas/carrito.html">Carrito</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="privacidad.html">Política de Privacidad</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col newsletter-col">
+        <h4 class="footer-title">Únete al Club</h4>
+        <p class="newsletter-text">
+          Recibe recetas, playlist mensuales y lanzamientos exclusivos.
+        </p>
+        <form class="footer-newsletter-form">
+          <input
+            type="email"
+            placeholder="Tu email aquí..."
+            required
+            class="newsletter-input"
+          />
+          <button type="submit" class="newsletter-btn">→</button>
+        </form>
+
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="TikTok">TikTok</a>
+          <a href="#" aria-label="Spotify">Spotify</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>
+        &copy; 2026 Sossego. Todos los derechos reservados. Hecho con ❤️ para
+        amantes del café.
+      </p>
+    </div>
+  </footer>
+  </body>
+</html>

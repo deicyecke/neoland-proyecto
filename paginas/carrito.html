@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sossego - Tu Carrito</title>
+    <link rel="stylesheet" href="../css/sossego-estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar">
+  <div class="logo">
+    <a href="../index.html">Sossego</a>
+  </div>
+  <ul class="nav-links">
+    <li><a href="tienda.html">Tienda</a></li>
+    <li><a href="locales.html">Locales</a></li>
+    <li class="dropdown">
+      <a href="#" class="dropbtn">Sobre Nosotros</a>
+      <ul class="dropdown-content">
+        <li><a href="historia.html">Historia</a></li>
+        <li><a href="origen.html">Origen del café</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="nav-icons">
+    <a href="usuario.html"><img src="../imagenes/usuario.png" alt="Usuario"></a>
+    <a href="carrito.html"><img src="../imagenes/carrito.png" alt="Carrito"></a>
+  </div>
+</nav>
+
+<main class="carrito-page-container">
+  
+  <section class="carrito-productos-wrapper">
+    <h1 class="carrito-main-title">Tu Carrito</h1>
+    
+    <div class="carrito-lista">
+      
+      <div class="carrito-item-card">
+        <div class="item-img-box">
+          <img src="../imagenes/cafegranotropical.jpg" alt="Café en grano Tropical">
+        </div>
+        <div class="item-details">
+          <h3>TROPICAL </h3>
+          <p class="item-meta">Grano entero • 250g</p>
+          <span class="item-price">12,50 €</span>
+        </div>
+        <div class="item-actions">
+          <div class="item-quantity-selector">
+            <button class="qty-btn">-</button>
+            <span class="qty-number">1</span>
+            <button class="qty-btn">+</button>
+          </div>
+          <button class="item-delete-btn">Eliminar</button>
+        </div>
+      </div>
+
+      <div class="carrito-item-card">
+        <div class="item-img-box">
+          <img src="../imagenes/cafegranobossanova.jpg" alt="Café en grano Bossa Nova">
+        </div>
+        <div class="item-details">
+          <h3>BOSSA NOVA </h3>
+          <p class="item-meta">Grano entero • 250g </p>
+          <span class="item-price">16,00 €</span>
+        </div>
+        <div class="item-actions">
+          <div class="item-quantity-selector">
+            <button class="qty-btn">-</button>
+            <span class="qty-number">2</span>
+            <button class="qty-btn">+</button>
+          </div>
+          <button class="item-delete-btn">Eliminar</button>
+        </div>
+      </div>
+
+    </div>
+    
+    <a href="tienda.html" class="link-seguir-comprando">← Volver a la tienda</a>
+  </section>
+
+  <aside class="carrito-checkout-sidebar">
+    
+    <div class="checkout-summary-box">
+      <h3>Resumen del pedido</h3>
+      <div class="summary-line">
+        <span>Subtotal</span>
+        <span>44,50 €</span>
+      </div>
+      <div class="summary-line">
+        <span>Gastos de envío</span>
+        <span class="free-shipping">Gratis</span>
+      </div>
+      <div class="summary-line total-line">
+        <span>Total</span>
+        <span>44,50 €</span>
+      </div>
+    </div>
+
+    <div class="checkout-form-box">
+      <h3>Datos de Envío y Pago</h3>
+      <form class="checkout-form">
+        
+        <div class="form-group">
+          <label for="checkout-email">Correo electrónico</label>
+          <input type="email" id="checkout-email" placeholder="lucas@correo.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="checkout-address">Dirección de entrega</label>
+          <input type="text" id="checkout-address" placeholder="Calle de Alcalá, 12, Madrid" required>
+        </div>
+
+        <div class="form-row-grid">
+          <div class="form-group">
+            <label for="checkout-cp">Código Postal</label>
+            <input type="text" id="checkout-cp" placeholder="28014" required>
+          </div>
+          <div class="form-group">
+            <label for="checkout-city">Ciudad</label>
+            <input type="text" id="checkout-city" placeholder="Madrid" required>
+          </div>
+        </div>
+
+        <div class="form-group card-input-wrapper">
+          <label for="checkout-card">Tarjeta de crédito / débito</label>
+          <div class="card-input-field">
+            <input type="text" id="checkout-card" placeholder="0000 0000 0000 0000" required>
+            <input type="text" id="checkout-expiry" placeholder="MM/AA" required style="width: 70px; text-align: center;">
+          </div>
+        </div>
+
+        <button type="submit" class="btn-checkout-submit">Confirmar y Pagar Pedido</button>
+      </form>
+    </div>
+
+  </aside>
+
+</main>
+
+</body>
+</html>

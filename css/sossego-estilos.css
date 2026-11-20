@@ -1,0 +1,1328 @@
+/* Selector universal: afecta a todos los elementos. Elimina márgenes y rellenos predeterminados y hace que el ancho/alto incluya también el padding y el borde. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Ámbito raíz del documento. Aquí se declaran variables CSS globales para reutilizar colores y otros valores con var(--nombre). */
+:root {
+  /* --- COLORES CORE DE LA MARCA --- */
+  --color-primario: #6aa0cb;       /* Azul Sossego */
+  --color-secundario: #9bd8dc;     /* Celeste Aqua */
+  --color-acento: #269b32;         /* Verde Botánico */
+  
+  /* --- COLORES DE INTERFAZ Y NEUTROS --- */
+  --color-fondo: #f0faf0;          /* Blanco Menta */
+  --color-tarjeta: #ffffff;        /* Blanco Puro */
+  --color-texto: #000000;          /* Negro Puro */
+  --color-texto-suave: #071408;    /* Oliva Ultra Oscuro */
+
+  /* --- COLORES DE ESTADO (COMPAÑERO) --- */
+  --estado-exito: #3cbfa3;         /* Verde Esmeralda */
+  --estado-error: #d64545;         /* Carmín */
+  --estado-desactivado: #bdb6bc;   /* Gris Ceniza */
+
+  /* --- VARIACIONES TONALES SOFT --- */
+  --info-fondo-azul: #e6f2fc;      
+  --info-fondo-verde: #eaf7eb;     
+  --exito-fondo: #ebf9f6;          
+  --error-fondo: #fdf2f2;          
+
+  /* --- CONFIGURACIÓN DE INTERFAZ --- */
+  --borde-ui-oficial: 2px solid #000000;
+  --transicion-suave: all 0.2s ease;
+}
+/* ==========================================================================
+   2. ESTILOS GENERALES 
+   ========================================================================== */
+/* Aplica una base tipográfica común a los párrafos y a los elementos con esta clase. */
+p, .descripcion-producto {
+  color: var(--color-texto);
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* Alertas de error y éxito de tu compañero */
+/* Selecciona los campos de formulario que tienen simultáneamente las clases/condiciones indicadas: están dentro de .form-group y llevan error-active. */
+.form-group input.error-active {
+  border-color: var(--estado-error);
+  background-color: var(--error-fondo);
+}
+
+/* Diseña el contenedor visual de un mensaje de operación correcta. */
+.alert-box-success {
+  background-color: var(--exito-fondo);
+  border: 2px solid var(--estado-exito);
+  border-radius: 15px;
+  padding: 20px;
+}
+
+/* Selecciona el botón de pago cuando está desactivado. :disabled es una pseudoclase de estado. */
+.btn-checkout-submit:disabled {
+  background-color: var(--estado-desactivado);
+  border-color: var(--estado-desactivado);
+  cursor: not-allowed;
+}
+/* PAGINA INICIO */
+/* Navbar */
+/* Barra de navegación principal. Flexbox distribuye logo, enlaces e iconos; position: fixed la mantiene visible al desplazarse. */
+.navbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1200px;
+  height: 60px;
+  background-color: #9bd8dc; /* Color Secundario */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  border: none; /* 🌟 Quitamos el borde negro */
+  border-radius: 12px; 
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(7, 20, 8, 0.12); /* 🌟 Sombra suave para que destaque sobre el fondo sin necesidad de líneas oscuras */
+}
+
+/* Estilos para el Dropdown */
+/* Contenedor del menú desplegable. position: relative sirve de referencia para posicionar su submenú. */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Submenú desplegable. Está oculto inicialmente y se posiciona respecto al contenedor .dropdown. */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #9bd8dc; /* Color Secundario */
+  min-width: 160px;
+  border: 2px solid #000000; /* Color Texto */
+  border-radius: 8px;
+  list-style: none;
+  padding: 10px 0;
+  z-index: 1001;
+  margin-top: 10px;
+}
+
+/* Sub-enlaces del dropdown */
+/* Estilo de los enlaces que están dentro de cada elemento de la lista del submenú. */
+.dropdown-content li a {
+  color: #000000; /* Color Texto */
+  padding: 8px 20px;
+  display: block;
+  font-size: 14px;
+}
+
+/* Estado visual del enlace del submenú cuando el cursor pasa por encima. :hover es una pseudoclase. */
+.dropdown-content li a:hover {
+  background-color: #6aa0cb; /* Color Primario */
+  color: #f0faf0; /* Color Fondo */
+}
+
+/* Mostrar al pasar el ratón */
+/* Muestra el submenú cuando el cursor está sobre el elemento .dropdown. */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Triángulo decorativo */
+/* Crea un elemento decorativo antes del contenido del submenú. ::before es un pseudoelemento. */
+.dropdown-content::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 20px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #000000; /* Color Texto */
+}
+
+/* Logo */
+/* Estilo del enlace que forma el logotipo de texto. */
+.logo a {
+  font-family: 'Covered By Your Grace', cursive;
+  font-size: 32px;
+  color: #000000; /* Color Texto */
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+/* Centro */
+/* Lista de navegación. Flexbox coloca sus elementos en fila y gap controla la separación. */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+/* Aspecto base de los enlaces del menú principal. */
+.nav-links li a {
+  text-decoration: none;
+  color: #000000; /* Color Texto */
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+/* Cambio de color de los enlaces del menú al pasar el cursor. */
+.nav-links li a:hover {
+  color: #6aa0cb; /* Color Primario */
+}
+
+/* Iconos derecha */
+/* Contenedor de los iconos de usuario y carrito; Flexbox los alinea en una fila. */
+.nav-icons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+/* Tamaño y comportamiento de las imágenes usadas como iconos. */
+.nav-icons img {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+}
+
+/* Estilos generales de toda la página: tipografía, fondo y color de texto. */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f0faf0; /* Color Fondo */
+  color: #000000; /* Color Texto */
+}
+
+/* Controla el tamaño de la imagen principal de portada. */
+.hero img{
+  width: 100%;
+  height: auto;
+
+}
+/* Estilo de la frase superpuesta o asociada a la imagen principal. */
+.hero-tagline-home {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300; 
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 6px; 
+  
+  color: #ffffff; 
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4); /* 🌟 Añade una sombra suave para que no se pierda con el fondo */
+  
+  margin-left: 55px;
+  margin-bottom: -10px; 
+  opacity: 0.9;
+}
+
+/* Estilo de un logotipo de texto situado en la parte inferior del hero. */
+.logo-inferior {
+  font-family: 'Covered By Your Grace', cursive;
+  font-size: 80px;
+  color: #000000;
+  margin-left: 50px;
+}
+
+/* --- seccion tienda en inicio --- */
+/* Contenedor general de la sección de productos destacados de la página de inicio. */
+.tienda-seccion {
+    padding: 80px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Cabecera de la sección de tienda. Flexbox separa el título y el enlace. */
+.tienda-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #9bd8dc; /* Color Secundario */
+    padding-bottom: 10px;
+}
+
+/* Jerarquía tipográfica del título de la sección. */
+.tienda-titulo-seccion {
+  font-family: 'Inter', sans-serif;
+  font-weight: 900; /* El peso más grueso (Black). Gran impacto visual */
+  font-size: 1.6rem; /* Aumentamos el tamaño */
+  letter-spacing: -0.5px; /* Letras juntas, estética editorial moderna */
+  text-transform: uppercase;
+  color: #000000;
+}
+
+/* Aspecto del enlace que lleva al catálogo completo. */
+.tienda-link {
+  text-decoration: none;
+  color: #6aa0cb; /* Tu Color Primario */
+  font-size: 0.8rem;
+  font-weight: 700; /* Negrita */
+  text-transform: uppercase;
+  letter-spacing: 1.5px; /* Más espaciado para que respire */
+  transition: color 0.2s;
+}
+
+/* Grid de productos */
+/* Distribuye las tarjetas de producto mediante CSS Grid. repeat() y minmax() permiten adaptar el número de columnas al espacio disponible. */
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* Tarjeta individual de producto. Flexbox organiza su contenido en columna. */
+.producto-item {
+    display: flex;
+    flex-direction: column;
+}
+
+/* El recuadro de color para la imagen */
+/* Marco que contiene la imagen del producto. position: relative permite colocar la etiqueta encima de la imagen. */
+.producto-imagen-box {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 20px; /* Mantiene las esquinas redonditas de la foto */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    overflow: hidden;
+    background-color: transparent; /*  Eliminamos el fondo blanco */
+    border: none; /*  Quitamos el borde negro de 2px */
+}
+
+/* Ajusta la imagen al marco y define una transición para el efecto de ampliación. */
+.producto-imagen-box img {
+    width: 100%; 
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+/* Amplía ligeramente la imagen cuando el cursor está sobre la tarjeta del producto. */
+.producto-item:hover .producto-imagen-box img {
+    transform: scale(1.05);
+}
+
+.bg-rosa { background-color: #f4d3d3; }
+.bg-amarillo { background-color: #f9e1a1; }
+.bg-lila { background-color: #e3d3f4; }
+.bg-menta { background-color: #9bd8dc; }
+
+/* Badge de "Más vendido" */
+/* Etiqueta pequeña superpuesta a la imagen, por ejemplo para destacar el producto más vendido. */
+.badge-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: #269b32; /* Color de Acento */
+    color: #f0faf0; /* Color Fondo */
+    padding: 5px 12px;
+    font-size: 0.65rem;
+    font-weight: 900;
+    border-radius: 50px;
+    letter-spacing: 0.5px;
+}
+
+/* Info del producto */
+/* Contenedor de la información textual de cada producto. */
+.producto-info-minimal {
+    text-align: left; 
+}
+
+/* Estilo del nombre del café. */
+.producto-nombre {
+  font-family: 'Inter', sans-serif;
+  font-weight: 800; /* Extra Bold */
+  font-size: 1.25rem; /* Un punto más grande para que sea lo primero que se lea */
+  letter-spacing: -0.2px;
+  color: #000000;
+  margin-bottom: 4px;
+}
+
+/* Estilo de la valoración representada con estrellas y el número de reseñas. */
+.producto-estrellas {
+    font-size: 0.8rem;
+    color: #269b32; /* Color de Acento */
+    margin-bottom: 10px;
+}
+
+/* Estilo de la descripción breve de las notas de sabor. */
+.producto-notas {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400; /* Regular: peso estándar y cómodo para lectura */
+  font-size: 0.9rem;
+  color: #000000;
+  opacity: 0.75; /* Bajamos la opacidad para que el bloque de texto no compita con el nombre */
+  line-height: 1.5; /* Más espacio entre líneas */
+  margin-bottom: 20px;
+}
+
+/* Botón de acción principal */
+/* Botón principal para añadir un producto al carrito. */
+.btn-accion-negro {
+  width: 100%;
+  background-color: #6aa0cb; /* Color Primario (Azul) */
+  color: #f0faf0; /* Color Fondo (Claro) */
+  border: 2px solid #000000; /* Estética de "UI marcada" con borde negro */
+  padding: 14px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700; /* Negrita marcada para el libro de estilo */
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease; /* Transición suave para el cambio de color */
+}
+
+/* El efecto al pasar el cursor (Hover) */
+/* Estado del botón cuando el cursor pasa por encima. */
+.btn-accion-negro:hover {
+  background-color: #269b32; /* Color de Acento (Verde) */
+  color: #f0faf0; /* Mantiene el texto claro */
+  border: 2px solid #269b32; /* El borde cambia a verde para fusionarse con el fondo */
+}
+
+/* ==========================================================================
+    PAGINA TIENDA 
+   ========================================================================== */
+
+/* BARRA DE FILTROS (CATEGORÍAS) */
+/* Barra que agrupa los enlaces para filtrar o clasificar productos. */
+.filtros-categoria {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 100px;
+  padding: 20px 0 10px 0;
+  background-color: #f0faf0; /* Color Fondo */
+}
+
+/* Aspecto base de cada enlace de categoría. */
+.filtro-link {
+  font-family: 'Inter', sans-serif;
+  text-decoration: none;
+  color: #000000; /* Color Texto */
+  font-weight: 700; /* Bold para botones de interfaz */
+  font-size: 0.85rem; /* Ajustado para microtipografía */
+  text-transform: uppercase;
+  letter-spacing: 1px; /* Espaciado premium para mayúsculas */
+  padding: 8px 20px;
+  border: 2px solid #000000; /* Estilo UI oficial marcado */
+  border-radius: 20px;
+  transition: all 0.2s ease;
+  background-color: #ffffff;
+}
+
+/* Comparte el estilo de interacción y el estilo de la categoría marcada como activa. */
+.filtro-link:hover, .filtro-link.active {
+  background-color: #6aa0cb; /* Color Primario */
+  color: #f0faf0; /* Color Fondo */
+  border-color: #6aa0cb; /* El borde acompaña al fondo en hover */
+}
+
+/* GRID ESPECÍFICO DE LA TIENDA */
+/* Grid principal de la página de tienda. En escritorio crea dos columnas y define separación y márgenes internos. */
+.productos-grid-tienda {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  padding: 30px 8% 60px 8%;
+  background-color: #f0faf0; /* Color Fondo */
+}
+
+/* CARDS CON ESTRUCTURA HORIZONTAL */
+/* Tarjeta de producto con dos zonas colocadas en horizontal. */
+.producto-card-horizontal {
+  background-color: #ffffff;
+  border: 2px solid #000000; /* Estilo UI oficial marcado */
+  border-radius: 20px;
+  display: flex;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+/* LADO IZQUIERDO (Contenedor de la Bolsa) */
+/* Columna izquierda de la tarjeta, destinada a la imagen y ficha técnica. */
+.card-izquierda {
+  width: 45%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 25px 20px;
+  border-right: 2px solid #000000; /* Línea divisoria oficial */
+}
+
+/* Contenedor de la imagen dentro de la columna izquierda. */
+.card-izquierda .producto-img-container {
+  width: 100%;
+  height: 240px;
+}
+
+/* Hace que la imagen ocupe el contenedor sin deformarse. */
+.card-izquierda .producto-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Ficha técnica pequeña abajo de la bolsa */
+/* Pequeña ficha técnica situada debajo de la imagen. */
+.ficha-tecnica-mini {
+  display: flex;
+  justify-content: space-between;
+  border-top: 2px solid #000000;
+  padding-top: 12px;
+  font-size: 0.7rem;
+  color: #000000;
+}
+
+/* Etiqueta breve en mayúsculas para identificar un dato técnico. */
+.mini-label {
+  display: block;
+  font-weight: 800; /* Extra Bold para etiquetas técnicas */
+  margin-bottom: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Valor que acompaña a la etiqueta técnica. */
+.mini-valor {
+  display: block;
+  font-weight: 400; /* Regular para valores numéricos */
+  line-height: 1.2;
+}
+
+/* LADO DERECHO (Textos explicativos y compra) */
+/* Columna derecha de la tarjeta, donde se agrupan datos y controles de compra. */
+.card-derecha {
+  width: 55%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+/* H3 / Nombre del Producto en la ficha (Hereda de la lógica global) */
+/* Estilo compartido para el título de la tarjeta o el nombre del producto en la tienda. */
+.card-derecha h3, .producto-nombre-tienda {
+  font-family: 'Inter', sans-serif;
+  font-weight: 800; /* Extra Bold */
+  font-size: 1.25rem;
+  color: #000000;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+/* Destaca el nombre o recomendación principal del café. */
+.recomendacion-consumo {
+  font-size: 1.1rem;
+  color: #269b32; /* Color de Acento para destacar */
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #9bd8dc; /* Color Secundario para separar */
+  padding-bottom: 10px;
+}
+
+/* Agrupa una etiqueta y su valor, como origen, variedad o notas. */
+.info-grupo {
+  margin-bottom: 14px;
+}
+
+/* Estilo de las etiquetas pequeñas que identifican cada dato. */
+.info-label {
+  display: block;
+  font-size: 0.7rem;
+  color: #000000;
+  font-weight: 800; /* Extra Bold en micro-etiquetas */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+}
+
+/* Estilo del contenido asociado a una etiqueta. */
+.info-valor {
+  font-size: 0.95rem;
+  color: #000000;
+  font-weight: 400; /* Regular cómodo para lectura de notas */
+  line-height: 1.4;
+}
+
+/* Variante de texto informativo alineada a la derecha. */
+.info-valor-secundario {
+  display: block;
+  text-align: right;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #000000;
+  margin-top: -5px;
+}
+
+/* SECCIÓN INDICADORES DE PUNTOS */
+/* Distribuye los indicadores de intensidad y tueste en una fila. */
+.indicadores-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 15px;
+  margin-bottom: 20px;
+}
+
+/* Agrupa verticalmente el título y los puntos de un indicador. */
+.indicador-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Coloca los puntos de valoración en horizontal. */
+.puntos-indicador {
+  display: flex;
+  gap: 5px;
+}
+
+/* Forma base de cada punto indicador. border-radius: 50% lo convierte en un círculo. */
+.punto {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #000000; /* Borde oficial */
+  background-color: transparent;
+}
+
+/* Representa un punto seleccionado o activo mediante un fondo de color. */
+.punto.activo {
+  background-color: #6aa0cb; /* Color Primario Azul */
+}
+
+/* COMPRA (Botonera inferior) */
+/* Agrupa el selector de cantidad y el botón de añadir al carrito. */
+.controles-compra {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+/* Caja que representa la cantidad elegida. */
+.cantidad {
+  flex: 1;
+  border: 2px solid #000000;
+  border-radius: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  background-color: #f0faf0; /* Color Fondo */
+  color: #000000;
+}
+
+/* Botón de compra de las tarjetas de la tienda. */
+.btn-carrito {
+  flex: 2;
+  background-color: #6aa0cb; /* Color Primario Azul */
+  color: #f0faf0; /* Color Fondo Claro */
+  border: 2px solid #000000; /* Borde de UI marcada */
+  border-radius: 25px;
+  padding: 12px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700; /* Bold marcado */
+  font-size: 0.8rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1.5px; /* Tracking expansivo para legibilidad */
+  transition: all 0.2s ease;
+}
+
+/* Cambio visual del botón de compra al pasar el cursor. */
+.btn-carrito:hover {
+  background-color: #269b32; /* Mutación al Color de Acento Verde */
+  border-color: #269b32; /* El borde cambia a verde para fusionarse */
+  color: #f0faf0;
+}
+
+/* BANNER CAFETERÍAS (BLOQUE INFERIOR) */
+/* Banner promocional que ocupa las dos columnas del grid en escritorio. */
+.banner-cafeterias {
+  grid-column: span 2;
+  background-color: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 20px;
+  padding: 30px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+  margin-top: 20px;
+}
+
+/* Agrupa el título y el texto del banner en vertical. */
+.banner-contenido {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Título principal del banner. */
+.banner-titulo {
+  font-size: 1.4rem;
+  color: #000000;
+  font-weight: 900; /* Peso Black para consistencia con los H2 */
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  margin: 0;
+}
+
+/* Texto descriptivo del banner. */
+.banner-texto {
+  font-size: 0.95rem;
+  color: #000000;
+  font-weight: 400; /* Regular */
+  opacity: 0.8; /* Suavizado consistente con los textos P */
+  margin: 0;
+}
+
+/* Enlace con apariencia de botón para visitar las cafeterías. */
+.btn-banner {
+  background-color: #6aa0cb; /* Color Primario Azul */
+  color: #f0faf0;
+  border: 2px solid #000000;
+  border-radius: 25px;
+  padding: 14px 28px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700; /* Bold */
+  font-size: 0.8rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+/* Estado interactivo del enlace-botón. */
+.btn-banner:hover {
+  background-color: #269b32; /* Color de Acento Verde */
+  border-color: #269b32;
+  color: #f0faf0;
+  transform: translateY(-2px);
+}
+
+/* RESPONSIVE*/
+@media (max-width: 900px) {
+/* Grid principal de la página de tienda. En escritorio crea dos columnas y define separación y márgenes internos. */
+  .productos-grid-tienda {
+    grid-template-columns: 1fr;
+    padding: 20px 4%;
+  }
+
+/* Tarjeta de producto con dos zonas colocadas en horizontal. */
+  .producto-card-horizontal {
+    flex-direction: column;
+  }
+
+  .card-izquierda, .card-derecha {
+    width: 100%;
+  }
+  
+/* Columna izquierda de la tarjeta, destinada a la imagen y ficha técnica. */
+  .card-izquierda {
+    height: 280px;
+    border-right: none;
+    border-bottom: 2px solid #000000;
+  }
+
+/* Banner promocional que ocupa las dos columnas del grid en escritorio. */
+  .banner-cafeterias {
+    grid-column: span 1;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    padding: 30px 20px;
+  }
+  
+/* Enlace con apariencia de botón para visitar las cafeterías. */
+  .btn-banner {
+    width: 100%;
+    text-align: center;
+  }
+}
+/* ==========================================================================
+    PAGINA CARRITO
+   ========================================================================== */
+   
+/* Contenedor general del carrito. Flexbox coloca la lista de productos y el resumen en dos columnas. */
+.carrito-page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 130px 5% 80px 5%;
+  display: flex;
+  gap: 50px;
+}
+
+/* Zona principal donde se muestran los productos del carrito. */
+.carrito-productos-wrapper {
+  flex: 1.4;
+}
+
+/* Título principal de la página del carrito. */
+.carrito-main-title {
+  font-family: 'Covered By Your Grace', cursive;
+  font-size: 3.5rem;
+  color: #000000;
+  margin-bottom: 30px;
+}
+
+/* Columna de tarjetas de productos del carrito. */
+.carrito-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+/* Tarjeta individual de un producto dentro del carrito. */
+.carrito-item-card {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 20px;
+  padding: 20px;
+  gap: 20px;
+}
+
+/* Marco cuadrado para la imagen pequeña del producto. */
+.item-img-box {
+  width: 90px;
+  height: 90px;
+  border: 1px solid #9bd8dc; /* Color Secundario */
+  border-radius: 12px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Ajusta la imagen al marco sin deformarla. */
+.item-img-box img {
+  width: 80%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Zona flexible con el nombre, formato y precio del producto. */
+.item-details {
+  flex: 1;
+}
+
+/* Estilo del nombre del producto dentro del carrito. */
+.item-details h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #000000;
+  margin-bottom: 5px;
+}
+
+/* Texto secundario con detalles como tipo de grano y peso. */
+.item-meta {
+  font-size: 0.85rem;
+  color: #000000;
+  opacity: 0.7;
+  margin-bottom: 10px;
+}
+
+/* Destaca el precio del producto. */
+.item-price {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #269b32; /* Color de Acento */
+}
+
+/* Agrupa las acciones de cantidad y eliminación. */
+.item-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 15px;
+}
+
+/* Contenedor del control visual de cantidad. */
+.item-quantity-selector {
+  border: 2px solid #000000;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: #f0faf0;
+}
+
+/* Botones de incremento y decremento de la cantidad. */
+.qty-btn {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #000000;
+  padding: 5px 14px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+/* Fondo del botón de cantidad al pasar el cursor. */
+.qty-btn:hover {
+  background-color: #9bd8dc; /* Color Secundario */
+}
+
+/* Número que muestra la cantidad seleccionada. */
+.qty-number {
+  font-weight: 700;
+  padding: 0 5px;
+  font-size: 0.95rem;
+}
+
+/* Botón para eliminar el producto de la lista. */
+.item-delete-btn {
+  background: none;
+  border: none;
+  color: #000000;
+  font-size: 0.8rem;
+  text-decoration: underline;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: 0.2s;
+}
+
+/* Estado visual del botón de eliminar al pasar el cursor. */
+.item-delete-btn:hover {
+  opacity: 1;
+  color: #269b32;
+}
+
+/* Enlace para volver a la tienda. */
+.link-seguir-comprando {
+  display: inline-block;
+  color: #6aa0cb; /* Color Primario */
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+/* Subraya el enlace al pasar el cursor. */
+.link-seguir-comprando:hover {
+  text-decoration: underline;
+}
+
+/* Columna lateral que contiene el resumen y el formulario de compra. */
+.carrito-checkout-sidebar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Caja visual del resumen del pedido. */
+.checkout-summary-box {
+  background-color: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 6px 6px 0px #9bd8dc; /* Sombra sólida con Color Secundario */
+}
+
+/* Estilo compartido de los títulos del resumen y del formulario. */
+.checkout-summary-box h3, .checkout-form-box h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #000000;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #9bd8dc;
+  padding-bottom: 10px;
+}
+
+/* Fila que separa visualmente el concepto y su importe. */
+.summary-line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 1rem;
+  color: #000000;
+}
+
+/* Destaca el texto que indica que el envío es gratuito. */
+.free-shipping {
+  color: #269b32; /* Color de Acento */
+  font-weight: 700;
+}
+
+/* Distingue la fila del total del pedido. */
+.total-line {
+  border-top: 2px solid #000000;
+  padding-top: 15px;
+  margin-top: 15px;
+  font-weight: 900;
+  font-size: 1.25rem;
+}
+
+/* Caja que contiene el formulario de envío y pago. */
+.checkout-form-box {
+  background-color: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 6px 6px 0px #6aa0cb; /* Sombra sólida con Color Primario */
+}
+
+/* Organiza los campos del formulario en una columna con separación. */
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Agrupa verticalmente una etiqueta y su campo de formulario. */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Estilo de las etiquetas de los campos. */
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #000000;
+}
+
+/* Estilo base de los campos de entrada. */
+.form-group input {
+  border: 2px solid #000000;
+  border-radius: 10px;
+  padding: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  background-color: #f0faf0; /* Color Fondo */
+  color: #000000;
+  outline: none;
+}
+
+/* Resalta el campo cuando el usuario lo selecciona para escribir. */
+.form-group input:focus {
+  border-color: #6aa0cb; /* Color Primario */
+}
+
+/* Coloca dos campos del formulario en columnas iguales. */
+.form-row-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+/* Agrupa visualmente los campos de tarjeta y caducidad. */
+.card-input-field {
+  display: flex;
+  border: 2px solid #000000;
+  border-radius: 10px;
+  background-color: #f0faf0;
+  overflow: hidden;
+}
+
+/* Ajusta los campos de entrada que están dentro del contenedor de tarjeta. */
+.card-input-field input {
+  border: none;
+  border-radius: 0;
+  background: none;
+}
+
+/* Selecciona el primer input del contenedor; flex: 1 hace que ocupe el espacio disponible. */
+.card-input-field input:first-child {
+  flex: 1;
+  border-right: 2px solid #000000;
+}
+
+/* Botón para confirmar y pagar el pedido. */
+.btn-checkout-submit {
+  width: 100%;
+  background-color: #269b32; /* Color de Acento */
+  color: #f0faf0;
+  border: 2px solid #000000;
+  border-radius: 20px;
+  padding: 15px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.2s;
+  margin-top: 10px;
+}
+
+/* Estado visual del botón de pago al pasar el cursor. */
+.btn-checkout-submit:hover {
+  background-color: #6aa0cb; /* Color Primario */
+  transform: scale(1.02);
+}
+
+@media (max-width: 900px) {
+/* Contenedor general del carrito. Flexbox coloca la lista de productos y el resumen en dos columnas. */
+  .carrito-page-container {
+    flex-direction: column;
+    padding-top: 100px;
+    gap: 40px;
+  }
+  
+/* Tarjeta individual de un producto dentro del carrito. */
+  .carrito-item-card {
+    flex-wrap: wrap;
+  }
+  
+/* Agrupa las acciones de cantidad y eliminación. */
+  .item-actions {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #f0faf0;
+    padding-top: 15px;
+  }
+}
+
+
+/* ==========================================================================
+   COMPONENTE: FOOTER GLOBAL 
+   ========================================================================== */
+
+/* Pie de página global compartido por las distintas páginas. */
+.main-footer {
+  background-color: #ffffff;
+  border-top: 2px solid #000000; /* Línea divisoria oficial negra (UI Marcada) */
+  padding: 70px 5% 20px 5%;
+  font-family: 'Inter', sans-serif;
+  color: #000000;
+  margin-top: auto; /* Ayuda a empujar el footer abajo en páginas cortas */
+}
+
+/* Grid que organiza las columnas del footer. */
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr 0.8fr 1.2fr;
+  gap: 40px;
+}
+
+/* Columna del footer organizada en vertical. */
+.footer-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Columna de Marca (Identidad Corporativa Caligráfica) */
+/* Estilo del logotipo del footer. */
+.footer-logo a {
+  font-family: 'Covered By Your Grace', cursive;
+  font-weight: 400; /* Peso caligráfico nativo para preservar la finura del trazo */
+  font-size: 2.25rem; /* Ajustado a escala rem */
+  color: #000000;
+  text-decoration: none;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+
+/* TEXTOS DESCRIPTIVOS (Alineados con P / Regular 400) */
+/* Texto descriptivo de la marca en el footer. */
+.brand-description {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400; /* Regular */
+  line-height: 1.55;
+  color: #000000;
+  opacity: 0.85; /* Alivio visual sobre fondo claro */
+  margin-bottom: 15px;
+}
+
+/* Texto con el horario general. */
+.footer-horario {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 400; /* Regular */
+  line-height: 1.45;
+  color: #000000;
+  opacity: 0.85;
+}
+
+/* TÍTULOS DE LAS COLUMNAS (Alineados con H3 / Extra Bold 800) */
+/* Títulos de las columnas del footer. */
+.footer-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800; /* Extra Bold unificado */
+  text-transform: uppercase;
+  letter-spacing: 1px; /* Espaciado premium compacto */
+  margin-bottom: 20px;
+  color: #000000;
+}
+
+/* Enlaces del Directorio Inferior */
+/* Lista vertical de enlaces del footer. */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Aspecto base de los enlaces del footer. */
+.footer-links li a {
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400; /* Regular para enlaces corridos */
+  color: #000000;
+  opacity: 0.85;
+  transition: all 0.2s ease;
+}
+
+/* Estado interactivo de los enlaces del footer. */
+.footer-links li a:hover {
+  color: #6aa0cb; /* Mutación al Color Primario Azul */
+  opacity: 1;
+  text-decoration: underline; /* Refuerzo de accesibilidad web */
+}
+
+/* Módulo Newsletter */
+/* Texto explicativo del formulario de suscripción. */
+.newsletter-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400; /* Regular */
+  line-height: 1.45;
+  color: #000000;
+  opacity: 0.85;
+  margin-bottom: 15px;
+}
+
+/* Formulario de newsletter dispuesto en una sola fila. */
+.footer-newsletter-form {
+  display: flex;
+  border: 2px solid #000000; /* Estilo UI oficial marcado */
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #f0faf0; /* Color Fondo Claro */
+  margin-bottom: 20px;
+}
+
+/* Campo donde se introduce el correo electrónico. */
+.newsletter-input {
+  flex: 1;
+  border: none;
+  background: none;
+  padding: 12px 15px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400; /* Regular */
+  font-size: 0.9rem;
+  color: #000000;
+  outline: none;
+}
+
+/* BOTÓN COMPONENTE NEWSLETTER (Estilo UI Bold) */
+/* Botón de envío del formulario de newsletter. */
+.newsletter-btn {
+  background-color: #6aa0cb; /* Color Primario Azul */
+  color: #f0faf0; /* Color Fondo Claro */
+  border: none;
+  border-left: 2px solid #000000; /* Separador marcado */
+  padding: 0 22px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700; /* Bold de interfaz unificado */
+  text-transform: uppercase;
+  letter-spacing: 1.5px; /* Tracking expansivo oficial */
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Cambio de fondo del botón de newsletter al pasar el cursor. */
+.newsletter-btn:hover {
+  background-color: #269b32; /* Mutación fluida al Verde de Acento */
+}
+
+/* Redes Sociales Estilo Texto Minimalista (Lifestyle UI) */
+/* Contenedor flexible de los enlaces a redes sociales. */
+.footer-socials {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Estilo de cada enlace de red social. */
+.footer-socials a {
+  text-decoration: none;
+  color: #000000;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700; /* Bold de interfaz secundaria */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 2px solid #000000; /* Borde de interacción UI */
+  padding: 8px 14px;
+  border-radius: 15px;
+  background-color: #ffffff;
+  transition: all 0.2s ease;
+}
+
+/* Estado interactivo de los enlaces sociales. */
+.footer-socials a:hover {
+  background-color: #9bd8dc; /* Mutación al Color Secundario Azul Claro */
+  transform: translateY(-2px); /* Pequeña respuesta interactiva uniforme */
+}
+
+/* Barra inferior de créditos */
+/* Franja inferior del footer para los créditos y derechos. */
+.footer-bottom {
+  max-width: 1200px;
+  margin: 50px auto 0 auto;
+  padding-top: 20px;
+  border-top: 2px solid #f0faf0; /* Reemplazado por separador sutil del color de fondo */
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400; /* Regular */
+  color: #000000;
+  opacity: 0.6;
+}
+
+/* RESPONSIVE  */
+@media (max-width: 900px) {
+/* Grid que organiza las columnas del footer. */
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    text-align: center;
+  }
+
+/* Columna del footer organizada en vertical. */
+  .footer-col {
+    align-items: center;
+  }
+
+/* Formulario de newsletter dispuesto en una sola fila. */
+  .footer-newsletter-form {
+    width: 100%;
+    max-width: 400px;
+  }
+
+/* Contenedor flexible de los enlaces a redes sociales. */
+  .footer-socials {
+    justify-content: center;
+  }
+}
