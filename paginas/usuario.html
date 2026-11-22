@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ees">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Sossego - Usuario</title>
+    <link rel="stylesheet" href="../css/sossego-estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">
+    <a href="../index.html">Sossego</a>
+  </div>
+  <ul class="nav-links">
+    <li><a href="tienda.html">Tienda</a></li>
+    <li><a href="locales.html">Locales</a></li>
+    
+      </ul>
+    </li>
+  </ul>
+  <div class="nav-icons">
+    <a href="usuario.html"><img src="../imagenes/usuario.png" alt="Usuario"></a>
+    <a href="carrito.html"><img src="../imagenes/carrito.png" alt="Carrito"></a>
+  </div>
+</nav>
+
+<main class="cuenta-page-container">
+  
+  <header class="cuenta-header">
+    <h1 class="cuenta-title">Hola de nuevo, Lucas</h1>
+    <p class="cuenta-welcome">Este es tu rincón de calma. Gestiona tus pedidos, favoritos y recompensas.</p>
+  </header>
+
+  <div class="cuenta-dashboard-grid">
+    
+    <section class="cuenta-card puntos-card">
+      <div class="puntos-content">
+        <span class="card-tag">Programa Sossego</span>
+        <h2>Tus Puntos Acumulados</h2>
+        <div class="puntos-badge">
+          <span class="puntos-numero">340</span>
+          <span class="puntos-leyenda">puntos</span>
+        </div>
+        <p class="puntos-meta">¡Estás a solo 60 puntos de conseguir una bolsa de 250g gratis!</p>
+        <div class="progress-bar-container">
+          <div class="progress-bar-fill" style="width: 85%;"></div>
+        </div>
+        <a href="tienda.html" class="btn-puntos-action">Canjear recompensas</a>
+      </div>
+    </section>
+
+    <section class="cuenta-card favoritos-card">
+      <h3 class="section-card-title">Tus Cafés Favoritos</h3>
+      <p class="section-card-subtitle">Tus elecciones habituales listas para añadir al carrito en un clic.</p>
+      
+      <div class="favoritos-list">
+        <div class="fav-item">
+          <div class="fav-img">
+            <img src="../imagenes/cafegranopaixao.jpg" alt="Café en grano Paixao">
+          </div>
+          <div class="fav-info">
+            <h4>Paixão</h4>
+            <p>Tueste Medio • Notas a cacao puro, melaza y frutos secos</p>
+            <span class="fav-price">12,50 €</span>
+          </div>
+          <button class="btn-quick-add">Añadir al carro</button>
+        </div>
+
+        <div class="fav-item">
+          <div class="fav-img">
+            <img src="../imagenes/cafegranorio.jpg" alt="Café en grano Rio">
+          </div>
+          <div class="fav-info">
+            <h4>Rio</h4>
+            <p>Cuerpo denso • Frutos Rojos</p>
+            <span class="fav-price">13,20 €</span>
+          </div>
+          <button class="btn-quick-add">Añadir al carro</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="cuenta-card pedidos-card">
+      <h3 class="section-card-title">Historial de Pedidos</h3>
+      
+      <div class="pedidos-table-wrapper">
+        <table class="pedidos-table">
+          <thead>
+            <tr>
+              <th>Pedido</th>
+              <th>Fecha</th>
+              <th>Productos</th>
+              <th>Total</th>
+              <th>Estado</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>#1042</strong></td>
+              <td>12 May 2026</td>
+              <td>1x Café en grano Rio, 2x Café Paixão </td>
+              <td>38,90 €</td>
+              <td><span class="status-badge entregado">Entregado</span></td>
+              <td><button class="btn-table-reorder">Repetir</button></td>
+            </tr>
+            <tr>
+              <td><strong>#0985</strong></td>
+              <td>18 Abr 2026</td>
+              <td>1x Café en Grano Samba</td>
+              <td>13,20 €</td>
+              <td><span class="status-badge entregado">Entregado</span></td>
+              <td><button class="btn-table-reorder">Repetir</button></td>
+            </tr>
+            <tr>
+              <td><strong>#0812</strong></td>
+              <td>03 Mar 2026</td>
+              <td>2x Café en Grano Bossa Nova</td>
+              <td>32,00 €</td>
+              <td><span class="status-badge entregado">Entregado</span></td>
+              <td><button class="btn-table-reorder">Repetir</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </div>
+</main>
+</body>
+</html>

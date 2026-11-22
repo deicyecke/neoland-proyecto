@@ -32,6 +32,7 @@
   --borde-ui-oficial: 2px solid #000000;
   --transicion-suave: all 0.2s ease;
 }
+
 /* ==========================================================================
    2. ESTILOS GENERALES 
    ========================================================================== */
@@ -111,36 +112,7 @@ p, .descripcion-producto {
 
 /* Sub-enlaces del dropdown */
 /* Estilo de los enlaces que están dentro de cada elemento de la lista del submenú. */
-.dropdown-content li a {
-  color: #000000; /* Color Texto */
-  padding: 8px 20px;
-  display: block;
-  font-size: 14px;
-}
 
-/* Estado visual del enlace del submenú cuando el cursor pasa por encima. :hover es una pseudoclase. */
-.dropdown-content li a:hover {
-  background-color: #6aa0cb; /* Color Primario */
-  color: #f0faf0; /* Color Fondo */
-}
-
-/* Mostrar al pasar el ratón */
-/* Muestra el submenú cuando el cursor está sobre el elemento .dropdown. */
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-/* Triángulo decorativo */
-/* Crea un elemento decorativo antes del contenido del submenú. ::before es un pseudoelemento. */
-.dropdown-content::before {
-  content: "";
-  position: absolute;
-  top: -8px;
-  left: 20px;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-bottom: 8px solid #000000; /* Color Texto */
-}
 
 /* Logo */
 /* Estilo del enlace que forma el logotipo de texto. */
@@ -386,6 +358,12 @@ body {
   color: #f0faf0; /* Mantiene el texto claro */
   border: 2px solid #269b32; /* El borde cambia a verde para fusionarse con el fondo */
 }
+
+
+
+
+
+
 
 /* ==========================================================================
     PAGINA TIENDA 
@@ -754,6 +732,245 @@ body {
     text-align: center;
   }
 }
+
+
+
+
+
+/* ==========================================================================
+   PÁGINA LOCALES 
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CONTENEDOR PRINCIPAL
+   -------------------------------------------------------------------------- */
+
+.locales-container {
+    display: flex; /* Activa Flexbox para colocar la lista de locales y el mapa uno al lado del otro. */
+    height: 100vh; /* La sección ocupa el 100% de la altura visible de la ventana del navegador. */
+    padding-top: 100px; /* Deja espacio superior para que el contenido no quede debajo de la navbar fija. */
+    background-color: #f0faf0; /* Aplica el color de fondo verde muy claro de la marca. */
+}
+
+
+/* --------------------------------------------------------------------------
+   2. LISTA DE LOCALES
+   -------------------------------------------------------------------------- */
+
+.locales-lista {
+    width: 45%; /* La lista ocupa el 45% del ancho del contenedor principal. */
+    overflow-y: auto; /* Permite desplazarse verticalmente si hay más locales de los que caben en la altura disponible. */
+    padding: 0 5% 50px 5%; /* Espacio interior: 0 arriba, 5% derecha, 50px abajo y 5% izquierda. */
+}
+
+
+/* --------------------------------------------------------------------------
+   3. TÍTULO PRINCIPAL
+   -------------------------------------------------------------------------- */
+
+.titulo-pagina {
+    font-family: 'Inter', sans-serif; /* Utiliza Inter como tipografía principal. */
+    font-weight: 900; /* Grosor Black: uno de los pesos más gruesos de la tipografía. */
+    font-size: 2.2rem; /* Define el tamaño del título utilizando como referencia el tamaño base del documento. */
+    letter-spacing: -0.5px; /* Reduce ligeramente el espacio entre letras para conseguir un aspecto más compacto. */
+    margin-bottom: 40px; /* Separa el título de la primera tarjeta de local. */
+    text-transform: uppercase; /* Muestra el texto en mayúsculas. */
+    color: #000000; /* Color negro para el texto. */
+}
+
+
+/* --------------------------------------------------------------------------
+   4. TARJETAS DE CADA LOCAL
+   -------------------------------------------------------------------------- */
+
+.local-card {
+    display: flex; /* Coloca la información y la fotografía en una misma fila. */
+    justify-content: space-between; /* Separa ambos elementos, distribuyéndolos hacia los extremos de la tarjeta. */
+    align-items: center; /* Centra verticalmente la información y la imagen. */
+    border: 2px solid #000000; /* Añade un borde negro de 2px. */
+    border-radius: 20px; /* Redondea las esquinas de la tarjeta. */
+    padding: 25px; /* Añade espacio entre el contenido y los bordes. */
+    margin-bottom: 25px; /* Separa esta tarjeta de la siguiente. */
+    background-color: #ffffff; /* Establece un fondo blanco. */
+    transition: transform 0.2s ease; /* Suaviza durante 0,2 segundos los cambios de posición. */
+}
+
+
+/* EFECTO AL PASAR EL CURSOR SOBRE UNA TARJETA */
+
+.local-card:hover {
+    transform: translateY(-5px); /* Desplaza la tarjeta 5px hacia arriba al pasar el cursor. */
+}
+
+
+/* INFORMACIÓN DEL LOCAL */
+
+.local-info {
+    flex: 1; /* Permite que el bloque de información ocupe el espacio libre disponible en la tarjeta. */
+}
+
+
+/* --------------------------------------------------------------------------
+   5. ETIQUETA DE ESTADO DEL LOCAL
+   -------------------------------------------------------------------------- */
+
+.local-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem; /* Tamaño pequeño para que funcione como etiqueta informativa. */
+    font-weight: 700; /* Grosor Bold. */
+    text-transform: uppercase; /* Convierte el texto a mayúsculas. */
+    letter-spacing: 1px; /* Aumenta la separación entre las letras. */
+    background: #269b32; /* Fondo verde de acento de la marca. */
+    color: #f0faf0; /* Texto en el color de fondo claro de la marca. */
+    padding: 5px 12px; /* Espacio interior: 5px arriba/abajo y 12px a los lados. */
+    border-radius: 50px; /* Crea una etiqueta con extremos muy redondeados. */
+    display: inline-block; /* Permite aplicar padding y márgenes conservando el comportamiento en línea. */
+    margin-bottom: 12px; /* Separa la etiqueta del nombre del local. */
+}
+
+
+/* --------------------------------------------------------------------------
+   6. NOMBRE DEL LOCAL
+   -------------------------------------------------------------------------- */
+
+.local-nombre {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.3rem; /* Define el tamaño del nombre del establecimiento. */
+    font-weight: 800; /* Grosor Extra Bold para destacar el nombre. */
+    letter-spacing: -0.2px; /* Reduce ligeramente la separación entre letras. */
+    margin-bottom: 10px; /* Deja espacio debajo del nombre. */
+    color: #000000;
+}
+
+
+/* --------------------------------------------------------------------------
+   7. DIRECCIÓN Y HORARIO
+   -------------------------------------------------------------------------- */
+
+/* La coma permite aplicar las mismas propiedades a los dos selectores.
+   Así evitamos repetir el mismo bloque de código. */
+
+.local-direccion,
+.local-horario {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem; /* Tamaño de texto descriptivo. */
+    font-weight: 400; /* Grosor Regular para facilitar la lectura. */
+    color: #000000;
+    opacity: 0.8; /* Reduce ligeramente la intensidad visual del texto. */
+    margin-bottom: 6px; /* Separa los párrafos entre sí. */
+    line-height: 1.4; /* Establece una altura de línea 1,4 veces el tamaño de la fuente. */
+}
+
+
+/* --------------------------------------------------------------------------
+   8. ENLACE PARA OBTENER INDICACIONES
+   -------------------------------------------------------------------------- */
+
+.btn-como-llegar {
+    font-family: 'Inter', sans-serif;
+    display: inline-block; /* Permite controlar el espacio interior y los márgenes del enlace. */
+    margin-top: 15px; /* Separa el enlace de la información del horario. */
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase; /* Muestra el texto en mayúsculas. */
+    letter-spacing: 1px;
+    color: #6aa0cb; /* Azul principal de la marca. */
+    text-decoration: underline; /* Mantiene el subrayado para identificarlo como enlace. */
+    transition: color 0.2s ease; /* Suaviza el cambio de color al interactuar. */
+}
+
+
+/* CAMBIO DE COLOR AL PASAR EL CURSOR */
+
+.btn-como-llegar:hover {
+    color: #269b32; /* Cambia del azul al verde de acento. */
+}
+
+
+/* --------------------------------------------------------------------------
+   9. MINIATURA DE LA FOTOGRAFÍA DEL LOCAL
+   -------------------------------------------------------------------------- */
+
+.local-foto {
+    width: 120px; /* Define el ancho del contenedor de la fotografía. */
+    height: 120px; /* Define su altura, creando un espacio cuadrado. */
+    border-radius: 15px; /* Redondea las esquinas del contenedor. */
+    margin-left: 20px; /* Separa la fotografía del bloque de información. */
+    display: flex; /* Activa Flexbox dentro del contenedor. */
+    align-items: center; /* Centra verticalmente el contenido. */
+    justify-content: center; /* Centra horizontalmente el contenido. */
+    overflow: hidden; /* Recorta cualquier parte de la imagen que sobresalga del contenedor. */
+    border: 2px solid #000000; /* Añade un borde negro de 2px. */
+    background-color: transparent; /* Mantiene el fondo transparente. */
+    flex-shrink: 0; /* Evita que la imagen se encoja cuando falta espacio en la tarjeta. */
+}
+
+
+/* IMAGEN DENTRO DE LA MINIATURA */
+
+.local-foto img {
+    width: 100%; /* La imagen ocupa todo el ancho del contenedor. */
+    height: 100%; /* La imagen ocupa toda su altura. */
+    object-fit: cover; /* Recorta la imagen si es necesario para llenar el espacio sin deformarla. */
+}
+
+
+/* --------------------------------------------------------------------------
+   10. CONTENEDOR DEL MAPA
+   -------------------------------------------------------------------------- */
+
+.mapa-contenedor {
+    width: 55%; /* El mapa ocupa el 55% del ancho del contenedor principal. */
+    height: calc(100vh - 100px); /* Calcula la altura de la ventana y resta los 100px superiores. */
+    position: sticky; /* Mantiene el mapa visible durante el desplazamiento dentro de su contenedor. */
+    top: 100px; /* Define la distancia superior a la que se mantiene el elemento al desplazarse. */
+    padding-right: 20px; /* Deja espacio a la derecha del mapa. */
+    padding-bottom: 20px; /* Deja espacio debajo del mapa. */
+}
+
+
+/* IFRAME DE GOOGLE MAPS */
+
+.mapa-contenedor iframe {
+    border-radius: 20px; /* Redondea las esquinas del mapa. */
+    border: 2px solid #000000 !important; /* Fuerza el borde negro aunque exista otro estilo aplicado al iframe. */
+    filter: grayscale(0.1) contrast(1.05); /* Reduce ligeramente la saturación y aumenta un poco el contraste. */
+}
+
+
+/* --------------------------------------------------------------------------
+   11. ADAPTACIÓN RESPONSIVE
+   -------------------------------------------------------------------------- */
+
+/* Esta media query se activa cuando la pantalla tiene un ancho de 900px
+   o menos. Permite modificar la distribución para dispositivos más pequeños. */
+
+@media (max-width: 900px) {
+
+    .locales-container {
+        flex-direction: column; /* Cambia la distribución horizontal por una vertical: lista primero y mapa después. */
+        height: auto; /* Permite que el contenedor crezca según el contenido. */
+    }
+
+    /* Se aplica a los dos bloques al mismo tiempo. */
+
+    .locales-lista,
+    .mapa-contenedor {
+        width: 100%; /* Ambos elementos pasan a ocupar todo el ancho disponible. */
+        height: auto; /* La altura deja de estar fijada y se adapta al contenido. */
+        padding: 20px; /* Establece 20px de espacio interior en los cuatro lados. */
+    }
+
+    .mapa-contenedor {
+        height: 400px; /* Mantiene una altura concreta para que el mapa siga siendo visible. */
+        position: relative; /* Sustituye sticky por posicionamiento relativo. */
+        top: 0; /* Elimina el desplazamiento superior de 100px. */
+    }
+}
+
+
+
+
 /* ==========================================================================
     PAGINA CARRITO
    ========================================================================== */
@@ -1093,6 +1310,418 @@ body {
     padding-top: 15px;
   }
 }
+
+
+
+
+
+/* ==========================================================================
+   PÁGINA ESPECÍFICA: USUARIO / DASHBOARD DE USUARIO
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CONTENEDOR PRINCIPAL DE LA PÁGINA
+   -------------------------------------------------------------------------- */
+
+.cuenta-page-container {
+  max-width: 1200px; /* Evita que el contenido crezca demasiado en pantallas grandes. */
+  margin: 0 auto; /* Centra el contenedor horizontalmente: auto reparte el espacio sobrante. */
+  padding: 140px 5% 80px 5%; /* Espacio interior: arriba, derecha, abajo e izquierda. 
+                               Los 140px superiores dejan espacio para la navbar fija. */
+}
+
+
+/* --------------------------------------------------------------------------
+   2. CABECERA DEL PERFIL
+   -------------------------------------------------------------------------- */
+
+.cuenta-header {
+  margin-bottom: 40px; /* Separa la cabecera del contenido que viene debajo. */
+  border-bottom: 2px solid #9bd8dc; /* Línea inferior de 2px en el color aqua de la marca. */
+  padding-bottom: 20px; /* Separa el texto de la línea inferior. */
+}
+
+.cuenta-title {
+  font-family: 'Covered By Your Grace', cursive; /* Utiliza la tipografía decorativa del logotipo. */
+  font-size: 3.8rem; /* Tamaño del título. rem toma como referencia el tamaño base del documento. */
+  color: #000000; /* Color negro para el texto. */
+  margin-bottom: 5px; /* Pequeña separación respecto al texto de bienvenida. */
+}
+
+.cuenta-welcome {
+  font-family: 'Inter', sans-serif; /* Tipografía principal de la web. */
+  font-size: 1.1rem; /* Tamaño ligeramente superior al texto base habitual. */
+  color: #000000; /* Color negro. */
+  opacity: 0.8; /* Reduce la opacidad para que el texto se vea algo más suave. */
+}
+
+
+/* --------------------------------------------------------------------------
+   3. ESTRUCTURA GENERAL DEL DASHBOARD
+   -------------------------------------------------------------------------- */
+
+.cuenta-dashboard-grid {
+  display: grid; /* Activa CSS Grid para organizar las tarjetas en una cuadrícula. */
+  grid-template-columns: 1fr 1.3fr; /* Crea dos columnas: la segunda es un 30% más ancha que la primera. */
+  gap: 30px; /* Espacio entre las filas y las columnas de la cuadrícula. */
+}
+
+/* TARJETA BASE: ESTILOS COMPARTIDOS POR LAS TRES TARJETAS */
+
+.cuenta-card {
+  background-color: #ffffff; /* Fondo blanco. */
+  border: 2px solid #000000; /* Borde negro de 2px. */
+  border-radius: 25px; /* Redondea las cuatro esquinas. */
+  padding: 35px; /* Espacio interior entre el borde y el contenido. */
+}
+
+
+/* ETIQUETAS PEQUEÑAS DE LAS TARJETAS */
+
+.card-tag {
+  font-family: 'Inter', sans-serif; /* Tipografía principal. */
+  font-size: 0.8rem; /* Tamaño pequeño para diferenciar esta etiqueta del título. */
+  font-weight: 800; /* Grosor de letra muy marcado. */
+  text-transform: uppercase; /* Convierte visualmente el texto a mayúsculas. */
+  color: #269b32; /* Verde de acento de la marca. */
+  letter-spacing: 1px; /* Añade separación entre las letras. */
+  display: inline-block; /* Permite aplicar márgenes y otras dimensiones manteniendo el comportamiento en línea. */
+  margin-bottom: 10px; /* Separa la etiqueta del título siguiente. */
+}
+
+
+/* TÍTULOS Y SUBTÍTULOS DE LAS TARJETAS */
+
+.section-card-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.5rem; /* Tamaño del título de cada tarjeta. */
+  font-weight: 800; /* Negrita marcada. */
+  color: #000000;
+  margin-bottom: 8px; /* Espacio debajo del título. */
+}
+
+.section-card-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem; /* Tamaño ligeramente inferior al texto habitual. */
+  color: #000000;
+  opacity: 0.7; /* Hace que el subtítulo tenga menos protagonismo visual. */
+  margin-bottom: 25px; /* Separa el subtítulo de los elementos que vienen debajo. */
+}
+
+
+/* --------------------------------------------------------------------------
+   4. BLOQUE 1: TARJETA DE PUNTOS
+   -------------------------------------------------------------------------- */
+
+.puntos-card {
+  box-shadow: 8px 8px 0px #9bd8dc; /* Crea una sombra sólida desplazada 8px a la derecha y abajo. */
+  background-color: #f0faf0; /* Fondo verde muy claro de la marca. */
+  display: flex; /* Activa Flexbox para organizar el contenido interior. */
+  flex-direction: column; /* Coloca los elementos en vertical. */
+  justify-content: center; /* Centra verticalmente el contenido dentro de la tarjeta. */
+}
+
+.puntos-card h2 {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+
+/* CONTENEDOR DEL NÚMERO DE PUNTOS Y SU ETIQUETA */
+
+.puntos-badge {
+  display: flex; /* Coloca el número y la palabra "puntos" en una misma fila. */
+  align-items: baseline; /* Alinea ambos textos por la línea base de sus letras. */
+  gap: 8px; /* Separa el número de la palabra. */
+  margin-bottom: 15px;
+}
+
+.puntos-numero {
+  font-family: 'Inter', sans-serif;
+  font-size: 4.5rem; /* Número grande para destacar la cantidad de puntos. */
+  font-weight: 900; /* Grosor máximo de la tipografía. */
+  color: #269b32; /* Verde de acento. */
+  line-height: 1; /* Reduce la altura de línea para ajustar el número a su tamaño. */
+}
+
+.puntos-leyenda {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #000000;
+}
+
+.puntos-meta {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+
+/* BARRA DE PROGRESO */
+
+.progress-bar-container {
+  width: 100%; /* Ocupa todo el ancho disponible de su contenedor. */
+  height: 12px; /* Define la altura de la barra. */
+  background-color: #ffffff; /* Color de fondo de la barra vacía. */
+  border: 2px solid #000000;
+  border-radius: 10px; /* Redondea los extremos. */
+  overflow: hidden; /* Recorta cualquier contenido que sobresalga de los bordes redondeados. */
+  margin-bottom: 30px;
+}
+
+.progress-bar-fill {
+  height: 100%; /* Ocupa toda la altura de la barra exterior. */
+  background-color: #269b32; /* Verde que representa el progreso conseguido. */
+  /* El ancho del progreso se establece directamente en el HTML mediante style="width: 85%". */
+}
+
+
+/* BOTÓN PARA CANJEAR LOS PUNTOS */
+
+.btn-puntos-action {
+  display: inline-block; /* Permite aplicar padding y dimensiones al enlace. */
+  text-align: center; /* Centra el texto dentro del botón. */
+  background-color: #000000;
+  color: #f0faf0; /* Texto en verde muy claro. */
+  text-decoration: none; /* Elimina el subrayado predeterminado de los enlaces. */
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  padding: 12px 25px; /* Espacio interior: 12px arriba/abajo y 25px a los lados. */
+  border-radius: 15px;
+  transition: 0.2s ease; /* Suaviza los cambios visuales que se produzcan al interactuar. */
+  border: 2px solid #000000;
+}
+
+/* :hover aplica estos estilos cuando el cursor pasa por encima del enlace. */
+
+.btn-puntos-action:hover {
+  background-color: #6aa0cb; /* Cambia el fondo al azul principal de la marca. */
+  border-color: #6aa0cb; /* Cambia también el color del borde. */
+}
+
+
+/* --------------------------------------------------------------------------
+   5. BLOQUE 2: TARJETA DE FAVORITOS
+   -------------------------------------------------------------------------- */
+
+.favoritos-card {
+  box-shadow: 8px 8px 0px #6aa0cb; /* Sombra sólida en azul para diferenciar esta tarjeta. */
+}
+
+
+/* LISTA VERTICAL DE PRODUCTOS FAVORITOS */
+
+.favoritos-list {
+  display: flex; /* Activa Flexbox. */
+  flex-direction: column; /* Coloca cada producto uno debajo del otro. */
+  gap: 20px; /* Añade 20px de separación entre los productos. */
+}
+
+
+/* CADA PRODUCTO DE LA LISTA */
+
+.fav-item {
+  display: flex; /* Coloca imagen, información y botón en una fila. */
+  align-items: center; /* Centra verticalmente los elementos de la fila. */
+  gap: 15px; /* Separa los distintos elementos. */
+  padding-bottom: 15px; /* Deja espacio debajo del contenido. */
+  border-bottom: 1px solid #9bd8dc; /* Línea aqua para separar los productos. */
+}
+
+/* :last-child selecciona únicamente el último elemento de la lista. */
+
+.fav-item:last-child {
+  padding-bottom: 0; /* Elimina el espacio inferior del último producto. */
+  border-bottom: none; /* Quita la línea divisoria del último producto. */
+}
+
+
+/* CONTENEDOR DE LA IMAGEN */
+
+.fav-img {
+  width: 60px;
+  height: 60px; /* Define un contenedor cuadrado para la imagen. */
+  border: 1px solid #9bd8dc;
+  border-radius: 10px;
+  background-color: #f0faf0;
+  display: flex; /* Permite centrar la imagen con Flexbox. */
+  align-items: center; /* Centra la imagen verticalmente. */
+  justify-content: center; /* Centra la imagen horizontalmente. */
+  overflow: hidden; /* Evita que la imagen sobresalga del contenedor. */
+}
+
+.fav-img img {
+  width: 80%; /* La imagen ocupa el 80% del ancho de su contenedor. */
+  height: auto; /* Mantiene sus proporciones originales. */
+}
+
+
+/* INFORMACIÓN DEL PRODUCTO */
+
+.fav-info {
+  flex: 1; /* Permite que este bloque ocupe el espacio libre disponible de la fila. */
+}
+
+.fav-info h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #000000;
+}
+
+.fav-info p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: #000000;
+  opacity: 0.7;
+}
+
+.fav-price {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #269b32;
+}
+
+
+/* BOTÓN PARA AÑADIR UN FAVORITO AL CARRITO */
+
+.btn-quick-add {
+  background-color: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
+  padding: 8px 15px;
+  border-radius: 12px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer; /* Cambia el cursor a una mano para indicar que es interactivo. */
+  transition: 0.2s; /* Suaviza los cambios visuales. */
+}
+
+.btn-quick-add:hover {
+  background-color: #9bd8dc; /* Cambia el fondo a aqua al pasar el cursor. */
+  transform: translateY(-2px); /* Desplaza el botón 2px hacia arriba. */
+}
+
+
+/* --------------------------------------------------------------------------
+   6. BLOQUE 3: HISTORIAL DE PEDIDOS
+   -------------------------------------------------------------------------- */
+
+.pedidos-card {
+  grid-column: span 2; /* Hace que esta tarjeta ocupe las dos columnas del Grid. */
+  box-shadow: 8px 8px 0px #000000; /* Sombra negra sólida. */
+}
+
+
+/* CONTENEDOR DE LA TABLA */
+
+.pedidos-table-wrapper {
+  width: 100%; /* La tabla puede ocupar todo el ancho disponible. */
+  overflow-x: auto; /* Si la tabla no cabe, permite desplazarse horizontalmente. */
+}
+
+
+/* TABLA */
+
+.pedidos-table {
+  width: 100%;
+  border-collapse: collapse; /* Une los bordes de las celdas para evitar líneas dobles. */
+  text-align: left; /* Alinea el contenido de las celdas a la izquierda. */
+}
+
+
+/* CELDAS DE CABECERA (TH) Y DE CONTENIDO (TD) */
+
+.pedidos-table th,
+.pedidos-table td {
+  padding: 15px; /* Espacio interior de cada celda. */
+  font-size: 0.95rem;
+  color: #000000;
+  border-bottom: 1px solid #f0faf0; /* Línea divisoria entre las filas. */
+}
+
+
+/* CABECERA DE LA TABLA */
+
+.pedidos-table th {
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  background-color: #f0faf0;
+  border-bottom: 2px solid #000000; /* Línea inferior más gruesa para distinguir la cabecera. */
+}
+
+
+/* ETIQUETA DEL ESTADO DEL PEDIDO */
+
+.status-badge {
+  display: inline-block; /* Permite aplicar padding y bordes a la etiqueta. */
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border: 1px solid #000000;
+}
+
+/* Esta clase se combina con .status-badge en el HTML. */
+
+.status-badge.entregado {
+  background-color: #f0faf0;
+  color: #269b32;
+}
+
+
+/* BOTÓN PARA REPETIR UN PEDIDO */
+
+.btn-table-reorder {
+  background: none; /* Elimina el fondo predeterminado del botón. */
+  border: none; /* Elimina su borde. */
+  color: #6aa0cb;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  text-decoration: underline; /* Subraya el texto para darle apariencia de enlace. */
+  cursor: pointer;
+}
+
+.btn-table-reorder:hover {
+  color: #269b32; /* Cambia el texto a verde al pasar el cursor. */
+}
+
+
+/* --------------------------------------------------------------------------
+   7. ADAPTACIÓN RESPONSIVE PARA PANTALLAS DE HASTA 900px
+   -------------------------------------------------------------------------- */
+
+/* Una media query permite aplicar estilos diferentes según el tamaño de pantalla.
+   En este caso, los estilos de este bloque se activan cuando el ancho es de
+   900px o menos. */
+
+@media (max-width: 900px) {
+
+  .cuenta-dashboard-grid {
+    grid-template-columns: 1fr; /* Sustituye las dos columnas por una sola. */
+  }
+
+  .pedidos-card {
+    grid-column: span 1; /* La tarjeta de pedidos pasa a ocupar una columna. */
+  }
+
+  .pedidos-table th,
+  .pedidos-table td {
+    padding: 10px; /* Reduce el espacio interior de las celdas. */
+    font-size: 0.85rem; /* Reduce el tamaño del texto de la tabla. */
+  }
+}
+
+
+
 
 
 /* ==========================================================================

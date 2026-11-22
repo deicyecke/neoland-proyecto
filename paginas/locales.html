@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	 <meta charset="UTF-8">
+    <title>Locales Sossego</title>
+    <link rel="stylesheet" href="../css/sossego-estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<nav class="navbar">
+  <!-- Logo izquierda -->
+  <div class="logo">
+    <a href="../index.html">Sossego</a>
+  </div>
+
+  <!-- Menú centro -->
+ <ul class="nav-links">
+  <li><a href="tienda.html">Tienda</a></li>
+  <li><a href="locales.html">Locales</a></li>
+  
+
+</ul>
+
+  <!-- Iconos derecha -->
+  <div class="nav-icons">
+    <a href="usuario.html"><img src="../imagenes/usuario.png" alt="Usuario"></a>
+    <a href="carrito.html"><img src="../imagenes/carrito.png" alt="Carrito"></a>
+  </div>
+</nav>
+
+<main class="locales-container">
+    <section class="locales-lista">
+        <h1 class="titulo-pagina">Nuestros Locales</h1>
+        
+        <!-- LOCAL 1: MALASAÑA -->
+        <div class="local-card">
+            <div class="local-info">
+                <span class="local-tag">ABIERTO</span>
+                <h2 class="local-nombre">Sossego Malasaña</h2>
+                <p class="local-direccion">Calle del Pez, 20, 28004 Madrid</p>
+                <p class="local-horario">Lun - Dom: 8:00 a 20:00</p>
+                <a href="#" class="btn-como-llegar">CÓMO LLEGAR</a>
+            </div>
+            <div class="local-foto">
+                <img src="../imagenes/sossegolocalMalasaña.jpg" alt="Sossego Malasaña">
+            </div>
+        </div>
+
+        <!-- LOCAL 2: LA LATINA -->
+        <div class="local-card">
+            <div class="local-info">
+                <span class="local-tag">ABIERTO</span>
+                <h2 class="local-nombre">Sossego La Latina</h2>
+                <p class="local-direccion">Calle de Toledo, 42, 28005 Madrid</p>
+                <p class="local-horario">Lun - Dom: 8:30 a 20:30</p>
+                <a href="#" class="btn-como-llegar">CÓMO LLEGAR</a>
+            </div>
+            <div class="local-foto">
+                <img src="../imagenes/sossegolocalLaLatina.jpg" alt="Sossego La Latina">
+            </div>
+        </div>
+
+        <!-- LOCAL 3: CHUECA -->
+        <div class="local-card">
+            <div class="local-info">
+                <span class="local-tag">PRÓXIMAMENTE</span>
+                <h2 class="local-nombre">Sossego Chueca</h2>
+                <p class="local-direccion">Calle de Pelayo, 15, 28004 Madrid</p>
+                <p class="local-horario">Inauguración Junio 2026</p>
+                <a href="#" class="btn-como-llegar">VER MAPA</a>
+            </div>
+            <div class="local-foto">
+                <img src="../imagenes/sossegolocalChueca.jpg" alt="Sossego Chueca">
+            </div>
+        </div>
+    </section>
+
+    <section class="mapa-contenedor">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12149.192329381736!2d-3.7112046487926715!3d40.413247413627725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42287d3a825835%3A0x16d9b4b0e527b13a!2sMadrid!5e0!3m2!1ses!2ses!4v1716843000000!5m2!1ses!2ses" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy">
+        </iframe>
+    </section>
+</main>
+
+</body>
+
+<footer class="main-footer">
+  <div class="footer-container">
+    
+    <div class="footer-col brand-col">
+      <h2 class="footer-logo"><a href="index.html">Sossego</a></h2>
+      <p class="brand-description">Café de especialidad tostado con coherencia, pensado para los amantes del buen café del día a día.</p>
+      <p class="footer-horario"><strong>Horarios generales:</strong> Lun a Dom: 8:00 - 20:00</p>
+    </div>
+
+    <div class="footer-col">
+      <h4 class="footer-title">Explora</h4>
+      <ul class="footer-links">
+        <li><a href="tienda.html">Tienda</a></li>
+        <li><a href="locales.html">Locales</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4 class="footer-title">Tu Cuenta</h4>
+      <ul class="footer-links">
+        <li><a href="usuario.html">Mi Cuenta</a></li>
+        <li><a href="carrito.html">Carrito</a></li>
+        <li><a href="#">Contacto</a></li>
+        <li><a href="#">Política de Privacidad</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col newsletter-col">
+      <h4 class="footer-title">Únete al Club</h4>
+      <p class="newsletter-text">Recibe recetas, playlist mensuales y lanzamientos exclusivos.</p>
+      <form class="footer-newsletter-form">
+        <input type="email" placeholder="Tu email aquí..." required class="newsletter-input">
+        <button type="submit" class="newsletter-btn">→</button>
+      </form>
+      
+      <div class="footer-socials">
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="TikTok">TikTok</a>
+        <a href="#" aria-label="Spotify">Spotify</a>
+  
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 Sossego. Todos los derechos reservados. Hecho con ❤️ para amantes del café.</p>
+  </div>
+</footer>
+</html>
